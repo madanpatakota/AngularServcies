@@ -77,9 +77,15 @@ export class EmployeeService {
     },
   ];
 
+  // getEmp():string{
+  //   return "Madan"
+  // }
 
+  // getEmp():number{
+  //   return 1;
+  // }
 
-  getEmployeeList() {
+  getEmployeeList() : Employee[] {
     return this.EmployeesList;
   }
 

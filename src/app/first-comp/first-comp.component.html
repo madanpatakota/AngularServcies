@@ -6,30 +6,62 @@
         <div class="col-12">
           <!-- <div class="container">
             <div class="container"> -->
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>EmployeeID</th>
-                    <th>FullName</th>
-                    <!-- <th>City</th>
-                    <th>PostalCode</th>
-                    <th>Country</th> -->
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let emp of EmployeesList">
-                    <td>{{ emp.EmployeeID }}</td>
-                    <td>{{ emp.FullName }}</td>
-                    <!-- <td>{{ emp.City }}</td>
-                    <td>{{ emp.PostalCode }}</td>
-                    <td>{{ emp.Country }}</td> -->
-                  </tr>
-                </tbody>
-              </table>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>EmployeeID</th>
+                <th>FullName</th>
+                <th>City</th>
+                <!-- <th>PostalCode</th>
+                <th>Country</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let emp of EmployeesList">
+                <td>{{ emp.EmployeeID }}</td>
+                <td>{{ emp.FullName }}</td>
+                <td>{{ emp.City }}</td>
+                <!-- <td>{{ emp.PostalCode }}</td>
+                <td>{{ emp.Country }}</td>
+              </tr> -->
+              </tr>
+              <tr colspan="3" *ngIf="EmployeesList.length ==0">
+                 No Records Found.
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!--Dropdown binding by the data-->
+
+      <!-- <input type="text" value="78655-9087-099" disabled/>
+      <input type="checkbox" disabled checked> -->
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-6">
+              <select class="form-select" (change)="filterByCity($event)">
+                <option value="" disabled selected>Select City</option>
+                <option [value]="city.CityID" *ngFor="let city of CitiesList">
+                  {{ city.CityName }}
+                </option>
+                <!-- <option value="1">India</option>
+                <option value="2">USA</option>
+                <option value="3">UK</option> -->
+              </select>
+            </div>
+            <div class="col-2">
+              <button class="btn btn-primary">Get</button>
+            </div>
+            <div class="col-2">
+              <button class="btn btn-danger">Delete</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-  <!-- </div>
+  </div>
+</div>
+<!-- </div>
 </div> -->
