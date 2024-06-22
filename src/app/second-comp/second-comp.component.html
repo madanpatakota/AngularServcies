@@ -22,7 +22,7 @@
                     <td>{{ emp.EmployeeID }}</td>
                     <td>{{ emp.FullName }}</td>
                     <td>
-                      <button class="btn btn-primary">
+                      <button (click)="sendEmpDetails(emp)" class="btn btn-primary">
                          <i class="bi bi-bell"></i> 
                       </button>
                     </td>

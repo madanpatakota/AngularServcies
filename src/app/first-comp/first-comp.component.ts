@@ -8,7 +8,7 @@ import { City } from '../city.model';
   selector: 'app-first-comp',
   templateUrl: './first-comp.component.html',
   styleUrls: ['./first-comp.component.css'],
-  providers: [EmployeeService, CityService]
+  providers: [ CityService]
 })
 export class FirstCompComponent {
 

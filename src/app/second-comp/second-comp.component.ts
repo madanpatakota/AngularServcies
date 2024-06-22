@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { EmployeeService } from '../employee.service';
+import { Employee } from '../employee.model';
 
 @Component({
   selector: 'app-second-comp',
   templateUrl: './second-comp.component.html',
   styleUrls: ['./second-comp.component.css'],
-  providers:[EmployeeService]   // Keep in mind i am giving the provider in comp level
+  providers:[]   // Keep in mind i am giving the provider in comp level
 })
 export class SecondCompComponent {
 
@@ -20,4 +21,14 @@ export class SecondCompComponent {
      //var employeeService = new EmployeeService();
      this.EmployeesList =   this.employeeService.getEmployeeList();
    }
+
+
+   //bell button click
+   sendEmpDetails(emp : Employee){
+      const message = this.employeeService.getLatestEmpNotification();
+      console.log(message);
+   }
+
+
+
 }

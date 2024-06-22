@@ -1,14 +1,11 @@
-import {Employee} from './employee.model';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Employee } from './employee.model';
+import { NotificationService } from './notification.service';
 
-// class abc{
-//      emp = [];
-
-//      getemp(){
-
-//      }
-// }
-
+@Injectable()
 export class EmployeeService {
+
+  constructor(public notificaitonService: NotificationService) { }
 
   // name : string = "Teja";
   private EmployeesList: Employee[] = [
@@ -85,8 +82,21 @@ export class EmployeeService {
   //   return 1;
   // }
 
-  getEmployeeList() : Employee[] {
+  getEmployeeList(): Employee[] {
     return this.EmployeesList;
+  }
+
+  notificationEventEmitter = new EventEmitter<string>();
+
+
+   getLatestEmpNotification(): string {
+    //Logic is here to connect the Latestnotfication from Notification Service
+
+    const message = this.notificaitonService.LatestNotification();
+
+    this.notificationEventEmitter.emit(message);
+
+    return message;
   }
 
 
