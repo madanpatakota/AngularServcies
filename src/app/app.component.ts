@@ -15,11 +15,35 @@ export class AppComponent implements OnInit {
 
   }
 
+  LatestNews : any;
+  isShowNotification = false;
+
   ngOnInit(): void {
+
+    //data your receving the emp data...
     this.empService.notificationEventEmitter.subscribe((data) => {
-      console.log("App component");
+      this.LatestNews = data;
+      this.isShowNotification = true;
+      console.log("App component" , this.LatestNews);
+
+
+      setTimeout(() => {
+        this.isShowNotification = false;
+        this.LatestNews = "";
+      }, 5000);
+
+
     })
+
+
+
+
+
+
   }
+
+
+  
 
 
 }

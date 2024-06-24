@@ -19,16 +19,30 @@ export class ThirdCompComponent implements OnInit {
 
   EmployeesList: any = [];
 
-  LatestMessage = "";
+  //LatestMessage = "";
+
+  LatestMessage : any;
+  isParagraphShow = false;
+
   ngOnInit(): void {
     //var employeeService = new EmployeeService();
     this.EmployeesList = this.employeeService.getEmployeeList();
 
 
 
-    this.employeeService.notificationEventEmitter.subscribe((news:string) => {
+    this.employeeService
+    .notificationEventEmitter
+    .subscribe((news:string) => {
         //console.log("Third Compoenent");
         this.LatestMessage = news;
+        this.isParagraphShow = true;
+        //console.log("ThirdComp" , this.LatestMessage);
+
+        setTimeout(() => {
+          this.LatestMessage = "";
+          this.isParagraphShow = false;
+        }, 5000);
+
       })
 
 

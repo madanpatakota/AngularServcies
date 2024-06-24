@@ -89,10 +89,10 @@ export class EmployeeService {
   notificationEventEmitter = new EventEmitter<string>();
 
 
-   getLatestEmpNotification(): string {
+   getLatestEmpNotification(empDetails:any): string {
     //Logic is here to connect the Latestnotfication from Notification Service
 
-    const message = this.notificaitonService.LatestNotification();
+    const message = this.notificaitonService.LatestNotification(empDetails);
 
     this.notificationEventEmitter.emit(message);
 

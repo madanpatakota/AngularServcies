@@ -25,7 +25,7 @@ export class SecondCompComponent {
 
    //bell button click
    sendEmpDetails(emp : Employee){
-      const message = this.employeeService.getLatestEmpNotification();
+      const message = this.employeeService.getLatestEmpNotification(emp);
       console.log(message);
    }
 
